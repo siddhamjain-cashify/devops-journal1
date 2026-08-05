@@ -31,4 +31,3 @@ def test_whoami():
     data = response.get_json()
 
     assert "hostname" in data
-    
