@@ -2,6 +2,8 @@ name: CI Pipeline
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
@@ -24,4 +26,4 @@ jobs:
           pip install flake8
 
       - name: Run Flake8
-        run: flake8 hello-api
+        run: flake8 .
