@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "notes/**"
+
   pull_request:
+    paths-ignore:
+      - "notes/**"
+
   workflow_dispatch:
 
 jobs:
