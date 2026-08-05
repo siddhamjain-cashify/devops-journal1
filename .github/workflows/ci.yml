@@ -11,3 +11,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r hello-api/requirements.txt
+          pip install flake8
+
+      - name: Run Flake8
+        run: flake8 hello-api
