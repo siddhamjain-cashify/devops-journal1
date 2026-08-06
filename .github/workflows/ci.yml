@@ -143,5 +143,5 @@ jobs:
           aws ecr describe-images \
             --repository-name ${{ env.ECR_REPOSITORY }} \
             --region ${{ env.AWS_REGION }} \
-            --query 'imageDetails[*].[imageDigest,imageTags]' \
-            --output table
+            --query "imageDetails[*].{Digest:imageDigest,Tags:imageTags}" \
+            --output json
