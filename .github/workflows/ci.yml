@@ -60,6 +60,13 @@ jobs:
       - name: Run Tests
         run: pytest
 
+  build:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+
+    steps:
+      - uses: actions/checkout@v4
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -68,13 +75,6 @@ jobs:
 
       - name: Verify AWS Identity
         run: aws sts get-caller-identity
-
-  build:
-    runs-on: ubuntu-latest
-    needs: [lint, test]
-
-    steps:
-      - uses: actions/checkout@v4
 
       - name: Print Secret
         run: echo "${{ secrets.DUMMY_SECRET }}"
