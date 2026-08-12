@@ -8,7 +8,7 @@ def test_home():
 
     assert response.status_code == 200
     assert response.get_json() == {
-        "message": "Hello from Docker v2!"
+        "message": "Hello from Docker v3 - CI/CD deployment!"
     }
 
 
